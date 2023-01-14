@@ -3,12 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Document</title>
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
 
-    <h1 id="hello">안녕하세요</h1>
-        <script>
-            document.getElementById('hello').innerHTML = '안녕';
-        </script>
-    </body>
+    <div class="alert-box" id="alert">
+        <p class="title">알림창</p>
+        <button id="close">닫기</button>
+    </div>
+
+    <button onclick="Messages('block','아이디를 입력');">버튼1</button>
+    <button onclick="Messages('block','비밀번호 입력');">버튼2</button>
+
+    <script>
+
+        document.getElementById('close').addEventListener('click', function(){
+            document.getElementById('alert').style.display = 'none';
+        });
+
+        function openAlert(a){
+            document.getElementById('alert').style.display = a;
+        }
+
+        function Messages(d,m){
+            document.getElementById('alert').style.display = d;
+            document.getElementsByClassName('title')[0].innerHTML = m;
+        }
+
+    </script>
+
+
+</body>
 </html>
