@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
 
     <div class="alert-box" id="alert">
         <p class="title">알림창</p>
@@ -17,21 +19,19 @@
 
     <script>
 
-        document.getElementById('close').addEventListener('click', function(){
+        document.getElementById('close').addEventListener('click', function () {
             document.getElementById('alert').style.display = 'none';
         });
 
-        function openAlert(a){
+        function openAlert(a) {
             document.getElementById('alert').style.display = a;
         }
 
-        function Messages(d,m){
+        function Messages(d, m) {
             document.getElementById('alert').style.display = d;
             document.getElementsByClassName('title')[0].innerHTML = m;
         }
-
     </script>
-
-
 </body>
+
 </html>
