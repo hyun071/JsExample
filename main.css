@@ -6,10 +6,10 @@
     display: none;
 }
 .list-group {
-    display : none;
-  }
-  .show {
-    display : block;
+    visibility: hidden; 
+    opacity: 0;
+    transition: opacity 1s;
+    overflow: hidden;
   }
   .black-bg {
     width : 100%;
@@ -18,9 +18,20 @@
     background : rgba(0,0,0,0.5);
     z-index : 5;
     padding: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s;
   }
   .white-bg {
     background: white;
     border-radius: 5px;
     padding: 30px;
   } 
+  .show-modal{
+    visibility: visible;
+    opacity: 1;
+  }
+.main-bg {
+  padding : 100px 20px;
+  background : lightgrey;
+}
