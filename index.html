@@ -19,16 +19,14 @@
 
     <script>
 
+        // 닫기 버튼 누르면 alert-box 안 보이게 하기 (display 상태 변경)
         document.getElementById('close').addEventListener('click', function () {
             document.getElementById('alert').style.display = 'none';
         });
 
-        function openAlert(a) {
-            document.getElementById('alert').style.display = a;
-        }
-
-        function Messages(d, m) {
-            document.getElementById('alert').style.display = d;
+        // alert-box display 상태 변경, '알림창'글씨를 'm'으로 변경
+        function Messages(b, m) {
+            document.getElementById('alert').style.display = b;
             document.getElementsByClassName('title')[0].innerHTML = m;
         }
     </script>

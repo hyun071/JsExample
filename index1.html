@@ -1,3 +1,4 @@
+<!-- bootstrap Starter template 사용 -->
 <!doctype html>
 <html lang="en">
 
@@ -35,7 +36,8 @@
 
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand">Navbar</span>
+      <span class="navbar-brand">JSShop</span>
+      <span class="badge bg-dark">Dark 🔄</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -57,22 +59,20 @@
 
   <script>
 
-    document.getElementById('close').addEventListener('click', function () {
-      document.getElementById('alert').style.display = 'none';
-    });
-
+    // 클릭 시 메뉴 창 보여주는 클래스 추가/제거 toggle
     document.querySelector('.navbar-toggler').addEventListener('click', function () {
       document.querySelectorAll('.list-group')[0].classList.toggle('show-modal');
     });
 
+    // 클릭 시 로그인 창 보여주는 클래스 추가/제거
     $('#login').on('click', function () {
       $('.black-bg').addClass('show-modal');
     });
-
     $('#close').on('click', function () {
       $('.black-bg').removeClass('show-modal');
     });
 
+    // 아이디 미입력 혹은 비밀번호가 6자 이하일 시 알림창 띄우고 전송 막기 
     $('form').on('submit', function (e) {
       if (document.getElementById('email').value == '') {
         alert('아이디를 입력하세요.');
@@ -83,6 +83,16 @@
       }
     });
 
+    // 클릭횟수가 홀수면 light🔄, 짝수면 dark🔄로 글자 변경
+    var count = 0;
+    $('.badge').on('click', function () {
+      count += 1;
+      if (count % 2 == 1) {
+        $('.badge').html('Light 🔄');
+      } else {
+        $('.badge').html('Dark 🔄');
+      }
+    });
 
 
   </script>

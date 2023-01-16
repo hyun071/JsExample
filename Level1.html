@@ -8,6 +8,8 @@
 
 <body>
     <script>
+
+        //369게임 9의 배수는 박수 두번
         function Game(num) {
             if (num % 9 == 0) {
                 console.log('박수x2');
@@ -19,6 +21,7 @@
         };
         // Game(12);
 
+        //과목 두 개인 시험, 40점 미만: 과락, 총합 120점 이상: 합격
         function pass(a, b) {
             if (a < 40 || b < 40) {
                 console.log('과락으로 인한 불합격입니다.');
