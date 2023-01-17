@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Level2Example</title>
+</head>
+
+<body>
+    <script>
+
+        // 나이는 변하니 재할당 가능한 변수, 출신 지역은 바뀌지 않으니 재할당 불가능한 변수에 저장하기
+        let age = 20; // 재선언 X, 재할당 O
+        const place = 'Gunsan'; // 재선언 X, 재할당 X
+
+        // 콘솔창에 무엇이 출력될까
+        var name = 'park';
+        var id = 0;
+        function showName() {
+            var name = 'kim';
+            var id = 1;
+            console.log(name); // kim 출력
+        }
+        showName();
+        console.log(id); // 0 출력
+
+        // 처음 주문한 양에 따라서 최대한 마실 수 있는 양을 콘솔창에 계산 (방금 마신 양의 3분의 2만큼 총 2번 리필)
+        var first = 360;
+        var total = 0;
+        total = first + first * 2 / 3 + first * 2 / 3 * 2 / 3
+        console.log(total);
+    </script>
+
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+    <script>
+
+        // 답을 맞추면 '정답', 3번 틀리면 '3회 이상 오답' alert띄우기
+        let count = 0;
+        $('#send-answer').on('click', function () {
+            count += 1;
+            let userText = $('#answer').val();
+            if (userText == '1335') {
+                alert('OK')
+            } else if (userText != '1335' && count >= 3) {
+                alert('NONONO')
+            }
+        })
+    </script>
+</body>
+
+</html>
