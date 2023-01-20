@@ -79,9 +79,11 @@
       $('.black-bg').removeClass('show-modal');
     });
 
-    // 아이디 미입력 혹은 비밀번호가 6자 이하일 시 알림창 띄우고 전송 막기 
+    // 아이디 공백, 이메일 형식 검사 비밀번호가 6자 이하일 시 알림창 띄우고 전송 막기 
     $('form').on('submit', function (e) {
-      if (document.getElementById('email').value == '') {
+      var emailText = document.getElementById('email').value;
+      var emailTest = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$('email')/;
+      if (emailText == '' && emailTest.test('email') ) {
         alert('아이디를 입력하세요.');
         e.preventDefault();
       }
@@ -89,6 +91,7 @@
         alert('6자 이상의 비밀번호를 입력하세요.');
         e.preventDefault();
       }
+
     });
 
     // 클릭횟수가 홀수면 light🔄, 짝수면 dark🔄로 글자 변경
