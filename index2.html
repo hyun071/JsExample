@@ -64,6 +64,26 @@
     <span id="num">5</span> 초 이내 구매시 사은품 증정!
   </div>
 
+  <div style="overflow: hidden">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="car1.png">
+      </div>
+      <div class="slide-box">
+        <img src="car2.png">
+      </div>
+      <div class="slide-box">
+        <img src="car3.png">
+      </div>
+    </div>
+  </div>
+
+  <button class="slide-1">1</button>
+  <button class="slide-2">2</button>
+  <button class="slide-3">3</button>
+  <button class="next">다음</button>
+  <button class="before">이전</button>
+
   <script>
 
     // // 클릭 시 메뉴 창 보여주는 클래스 추가/제거 toggle
@@ -82,13 +102,15 @@
     // 아이디 공백, 이메일 형식 검사 비밀번호가 6자 이하일 시 알림창 띄우고 전송 막기 
     $('form').on('submit', function (e) {
       var emailText = document.getElementById('email').value;
-      var emailTest = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$('email')/;
-      if (emailText == '' && emailTest.test('email') ) {
-        alert('아이디를 입력하세요.');
+      var emailTest = /\S+@\S+\.\S+/;
+      var pwText = document.getElementById('pw').value;
+      var pwTest = /[A-Z]/;
+      if (emailText == '' || !emailTest.test(emailText)) {
+        alert('아이디미입력이거나 이메일 형식이 올바르지 않습니다..');
         e.preventDefault();
       }
-       else if (document.getElementById('pw').value.length < 6) {
-        alert('6자 이상의 비밀번호를 입력하세요.');
+      else if (pwText.length < 6 || !pwTest.test(pwText)) {
+        alert('영어 대문자 포함 6자 이상의 비밀번호를 입력하세요.');
         e.preventDefault();
       }
 
@@ -117,16 +139,35 @@
       count -= 1;
       if (count >= 0) {
         document.querySelector('#num').innerHTML = count;
-      } 
+      }
       if (count == 0) {
         $('.alert').hide();
       }
     }
 
     // 타이머를 삭제하고 싶으면 clearTimeout(타이머) 실행
-    var Timer = setInterval(t);
+    //  var Timer = setInterval(t);
 
+    //  버튼을 누르면 사진을 보여주기    
+    $('.slide-1').on('click', function () {
+      $('.slide-container').css('transform', 'translateX(0vw)');
+    });
+    $('.slide-2').on('click', function () {
+      $('.slide-container').css('transform', 'translateX(-100vw)');
+    })
+    $('.slide-3').on('click', function () {
+      $('.slide-container').css('transform', 'translateX(-200vw)');
+    })
 
+    var pic = 1;
+    $('.next').on('click', function () {
+      $('.slide-container').css('transform', 'translateX(-' + pic + '00vw)');
+      pic += 1;
+    });
+    $('.before').on('click', function () {
+      $('.slide-container').css('transform', 'translateX(+' + pic + '00vw)');
+      pic -= 1;
+    });
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
