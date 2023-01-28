@@ -107,3 +107,7 @@ ul.list::after {
 .show {
   display: block;
 }
+
+.hide {
+  display: none;
+}
