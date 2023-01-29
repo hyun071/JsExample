@@ -32,7 +32,7 @@
             <option>바지</option>
         </select>
 
-        <select class="form-select mt-2 hide">
+        <select class="form-select mt-2 form-hide">
             <option>90</option>
             <option>100</option>
             <option>110</option>
@@ -44,26 +44,25 @@
         var pants = [28, 30, 32];
         var shirts = [90, 100, 110];
 
-        // 다시 모자를 선택하면 사이즈 옵션이 사라지게 하려면? 
-        //바지눌렀다가 셔츠눌렀을때 이상한거 해결?(셔츠눌렀을 때 둘 째 <select> 안에 있는 html도 조정)
         $('.form-select').eq(0).on('input', function () {
             var value = this.value;
             if (value == '셔츠') {
-                $('.form-select').eq(1).removeClass('hide');
-            } else if(value == '바지'){
-                $('.form-select').eq(1).removeClass('hide');                
-                $('.form-select').eq(1).html('');
-                pants.forEach(function(data){
-                   $('.form-select').eq(1).append(`<option>${data}</option>`); 
-                });
+                $('.form-select').eq(1).removeClass('form-hide');
+            } else if (value == '바지') {
+                $('.form-select').eq(1).removeClass('form-hide');
+                var pants = `<option>28</option>
+            <option>30</option>`;
+                // $('.form-select').eq(1).html(pants);
+                document.querySelectorAll('.form-select')[1].innerHTML = pants;
+
+                s
+
+            } else {
+                $('.form-select').eq(1).addClass('form-hide');
             }
         })
 
-        var obj = {namae : 'kim', age : '20'}
 
-        for (var key in obj){
-            console.log(key);
-        }
 
     </script>
 
