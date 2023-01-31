@@ -1,4 +1,3 @@
-
 var car2 = { name: 'SONATA', price: [50000, 3000, 4000] }
 document.querySelector('.car-price').innerHTML = '가격: ' + car2.price[1];
 
@@ -33,3 +32,24 @@ $('.list').click(function (e) {
 //         $('.form-select').eq(1).removeClass('hide');
 //         }
 // })
+
+// var pants = [28, 30, 32];
+var shirts = [90, 100, 110];
+$('.form-select').eq(0).on('input', function () {
+    var value = this.value;
+    if (value == '셔츠') {
+        $('.form-select').eq(1).removeClass('form-hide');
+        $('.form-select').eq(1).html('');
+        shirts.forEach(function (a) {
+            $('.form-select').eq(1).append(`<option>${a}</option>`);
+        });
+    } else if (value == '바지') {
+        $('.form-select').eq(1).removeClass('form-hide');
+        var pants = `<option>28</option>
+    <option>30</option>`;
+        // $('.form-select').eq(1).html(pants);
+        document.querySelectorAll('.form-select')[1].innerHTML = pants;
+    } else {
+        $('.form-select').eq(1).addClass('form-hide');
+    }
+});
