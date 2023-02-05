@@ -65,13 +65,13 @@
 
   <div style="overflow: hidden">
     <div class="slide-container">
-      <div class="slide-box">
+      <div class="slide-box" id="img_1">
         <img src="car1.png">
       </div>
-      <div class="slide-box">
+      <div class="slide-box" id="img_2">
         <img src="car2.png">
       </div>
-      <div class="slide-box">
+      <div class="slide-box" id="img_3">
         <img src="car3.png">
       </div>
     </div>
@@ -144,7 +144,7 @@
 
     // 콘솔창에 1초마다 5라는 문자를 1씩 감소하고 0에 사라지게 하기, 콜백함수 자리에 만들어둔 함수 넣기
     var count = 5;
-    setInterval(numEvent, 1000);
+    var numInterval = setInterval(numEvent, 1000);
     function numEvent() {
       count -= 1;
       if (count >= 0) {
@@ -152,6 +152,7 @@
       }
       if (count == 0) {
         $('.alert').hide();
+        clearInterval(numInterval); //인터벌종료
       }
     }
     // 타이머를 삭제하고 싶으면 clearTimeout(타이머) 실행
@@ -190,14 +191,20 @@
     // document.documentElement.scrollHeight// 현재페이지 실제높이
     // document.querySelector('html').clientHeight// 페이지 보이는 부분 높이
     // window.scrollY // 현재페이지 스크롤양
-
+    let scroll_flag = true;
     $('.lorem').on('scroll', function () {
+
       var 스크롤양 = document.querySelector('.lorem').scrollTop;
       var 실제높이 = document.querySelector('.lorem').scrollHeight;
       var 눈에보이는높이 = document.querySelector('.lorem').clientHeight;
-      console.log(스크롤양, 실제높이, 눈에보이는높이);
+      // console.log(스크롤양, 실제높이, 눈에보이는높이);
       if (스크롤양 + 눈에보이는높이 > 실제높이 - 10) {
-        alert('다읽음')
+        if(scroll_flag){
+          alert('다읽음');
+          scroll_flag = false;
+        }
+      }else{
+        scroll_flag =true;
       }
     })
 
