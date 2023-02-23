@@ -53,3 +53,5 @@ $('.form-select').eq(0).on('input', function () {
         $('.form-select').eq(1).addClass('form-hide');
     }
 });
+
+// for in 문법
