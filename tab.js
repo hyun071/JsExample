@@ -53,3 +53,9 @@ $('.form-select').eq(0).on('input', function () {
         $('.form-select').eq(1).addClass('form-hide');
     }
 });
+
+// object 자료 갯수만큼 반복문 돌리려면
+var obj = {name : 'kim', age : 20}
+for (var key in obj){
+    // console.log(obj[key]);
+}
